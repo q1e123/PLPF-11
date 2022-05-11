@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { sha256 } from 'js-sha256';
-
+import {Router} from '@angular/router'; 
 import Swal from 'sweetalert2';
+import { RouterModule, Routes} from '@angular/router';
 
 import { CryptoManagerComponent } from '../crypto-manager/crypto-manager.component';
 
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   accountMap: Map<string, string> = new Map();
 
-  constructor() {
+  constructor(private router: Router) {
     
    }
 
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
       const hashedPassword = CryptoManagerComponent.getSHA256(this.password);
       if (hashedPassword === this.accountMap.get(this.username)){
         localStorage.setItem('currentUser', this.username);
+        this.router.navigate(['/logged']);
         return;
       }
     }
