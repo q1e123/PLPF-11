@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="container">
+<h1>Sign-up</h1>
+<div class="row">
+    <form (ngSubmit)="login()">
+
+        <input class="form-control" name="username" [(ngModel)]="username">
+        <input class="form-control" name="password" [(ngModel)]="password">
+        
+        <input type="submit" class="btn-sm btn-primary" value="Login">
+    </form>
+</div>
