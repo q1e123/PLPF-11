@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { CryptoManagerComponent } from './crypto-manager/crypto-manager.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    CryptoManagerComponent
+    CryptoManagerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
