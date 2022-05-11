@@ -4,12 +4,13 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path:'', component:AppComponent},
-  { path:'/signup', component:SignupComponent}
+  { path: 'signup', component: SignupComponent },
+  { path: '', component: AppComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+ }
