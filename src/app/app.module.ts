@@ -7,13 +7,15 @@ import { SignupComponent } from './signup/signup.component';
 import { CryptoManagerComponent } from './crypto-manager/crypto-manager.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { UserLoggedComponent } from './user-logged/user-logged.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     CryptoManagerComponent,
-    LoginComponent
+    LoginComponent,
+    UserLoggedComponent
   ],
   imports: [
     BrowserModule,

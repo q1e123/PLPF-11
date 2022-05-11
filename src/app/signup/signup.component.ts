@@ -17,8 +17,13 @@ export class SignupComponent implements OnInit {
 
   constructor() { 
     const savedAccounts = localStorage.getItem('accountMap');
-    if (!savedAccounts){
-      this.accountMap = JSON.parse(savedAccounts as string);
+    const listAccounts = JSON.parse(savedAccounts as string);
+    if (savedAccounts){
+      this.accountMap = new Map<string, string>(
+        listAccounts.map((object: [string, string]) => {
+          return [object[0], object[1]];
+        }),
+      );
     } else {
       this.accountMap = new Map<string, string>();
     }
@@ -34,9 +39,7 @@ export class SignupComponent implements OnInit {
     }
     this.password = CryptoManagerComponent.getSHA256(this.password);
     this.accountMap.set(this.username, this.password);
-    console.log(JSON.stringify(Array.from(this.accountMap)));
     localStorage.setItem('accountMap', JSON.stringify(Array.from(this.accountMap)));
-    console.log(this.accountMap);
     Swal.fire('Account creation was successful!', 'You can now login!', 'success');
   }
 
