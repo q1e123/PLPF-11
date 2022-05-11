@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import Swal from 'sweetalert2';
+
+import { CryptoManagerComponent } from '../crypto-manager/crypto-manager.component';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,6 +27,16 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    if(this.accountMap.has(this.username)){
+      if (this.password === this.accountMap.get(this.username)){
+        localStorage.setItem('currentUser', this.username);
+        return;
+      }
+    }
+    Swal.fire('Wrong credentials', 'Try again!', 'error');
   }
 
 }
