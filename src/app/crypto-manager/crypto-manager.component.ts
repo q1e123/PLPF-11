@@ -14,7 +14,7 @@ export class CryptoManagerComponent implements OnInit {
   }
 
   
-  getSHA256(stringToHash: string){
+  static getSHA256(stringToHash: string){
     return sha256(stringToHash);
   }
 
