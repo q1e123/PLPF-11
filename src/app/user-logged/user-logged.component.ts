@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoggedComponent implements OnInit {
 
-  constructor() { }
+  username = ''
+  constructor() { 
+    this.username = localStorage.getItem('currentUser') || '';
+  }
 
   ngOnInit(): void {
   }
